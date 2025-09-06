@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Skrawl</title>
+    <meta name="description"
+        content="Frequently Asked Questions about Skrawl - Get answers to common questions about purchases, account issues, and app features.">
+
+    <!-- Performance Optimizations -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <!-- Fonts - Performance Optimized -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400&family=Nunito:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400&family=Nunito:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <style>
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            line-height: 1.8;
+        }
+
+        .faq-content h1 {
+            font-family: var(--font-primary);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--spacing-xl);
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .faq-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: var(--spacing-xl) 0 var(--spacing-lg);
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xl);
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-variant);
+        }
+
+        .back-link svg {
+            transition: transform 0.2s ease;
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-2px);
+        }
+
+        .effective-date {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            backdrop-filter: blur(10px);
+        }
+
+        .effective-date p {
+            margin: 0;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .faq-category {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .faq-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-md);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            user-select: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--glass-overlay);
+        }
+
+        .faq-question .icon {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question .icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--bg-surface);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: var(--spacing-lg);
+        }
+
+        .faq-answer p {
+            margin: 0 0 var(--spacing-md) 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer strong {
+            color: var(--text-primary);
+        }
+
+        .faq-answer .highlight {
+            background: var(--glass-bg);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--primary);
+            margin: var(--spacing-md) 0;
+        }
+
+        /* Performance: Reduce layout shifts */
+        .faq-content h1,
+        .faq-content h2 {
+            contain: layout;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .faq-content {
+                padding: var(--spacing-xl) var(--spacing-md);
+            }
+
+            .faq-question {
+                padding: var(--spacing-md);
+            }
+
+            .faq-item.active .faq-answer {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="./index.html" class="nav-logo">
+                    <span class="logo-text">Skrawl</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="main-content">
+        <div class="faq-content">
+            <a href="./index.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                Back to Home
+            </a>
+
+            <h1>Frequently Asked Questions</h1>
+
+            <div class="effective-date">
+                <p><strong>Last Updated:</strong> 06/09/2025</p>
+                <p>Find answers to common questions about Skrawl, purchases, and account management.</p>
+            </div>
+
+            <!-- Refund and Purchase Issues -->
+            <div class="faq-category">
+                <h2>💰 Refund and Purchase Issues</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I want my money back for a skin/theme I purchased. How do I get a refund?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All in-app purchases are final sales as stated in our Terms of Service. However, you can
+                            request a refund directly from <strong>Apple App Store</strong> or <strong>Google Play
+                                Store</strong> within their refund windows (typically 48 hours for Apple, 2 hours for
+                            Google).</p>
+                        <div class="highlight">
+                            <p><strong>Important:</strong> We don't process refunds directly - the app stores handle all
+                                payment disputes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>The app store denied my refund request. What are my options?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>App store refund decisions are final and outside our control. As per our Terms of Service,
+                            all digital purchases are final unless required by law.</p>
+                        <p>If you believe there was a <strong>technical error</strong> with your purchase (item not
+                            delivered, charged twice, etc.), please contact us with your transaction ID and we'll
+                            investigate.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>My child made purchases without permission. Can I get a refund?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We understand this is frustrating. Please contact <strong>Apple/Google directly</strong> for
+                            unauthorized purchase disputes - they have specific policies for purchases made by minors.
+                        </p>
+                        <p>To prevent future accidental purchases, we recommend:</p>
+                        <p>• Enable <strong>"Ask to Buy"</strong> (iOS) or require authentication for purchases<br>
+                            • Set up parental controls in your device settings<br>
+                            • Review purchase settings in the app store</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account and Technical Support -->
+            <div class="faq-category">
+                <h2>🔧 Account and Technical Support</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I lost my premium content after reinstalling the app. How do I get it back?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your purchases should automatically restore when you log in with the same account. Please
+                            ensure you're using the <strong>same Apple ID/Google account</strong> used for the original
+                            purchase.</p>
+                        <p>If the content still doesn't appear, please contact us with your transaction ID and we'll
+                            help restore your purchases.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I got a new phone. Where are my purchases?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Purchases are tied to your <strong>app store account</strong> (Apple ID/Google account), not
+                            your device. Log in with the same account on your new device and your purchases will restore
+                            automatically.</p>
+                        <p>Make sure you're signed into the same account in your device settings before opening Skrawl.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I paid for something but didn't receive it. What should I do?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We apologize for this issue. Please provide your <strong>transaction ID/receipt</strong> and
+                            we'll investigate immediately. Sometimes there can be delays in purchase processing.</p>
+                        <div class="highlight">
+                            <p>If the purchase was processed by the app store but not delivered in-app, we'll manually
+                                restore it to your account.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I access my account if I forgot my login details?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Please contact us with your <strong>purchase receipts</strong> and account email. We can help
+                            verify your account and restore access.</p>
+                        <p>Your purchases are tied to your email address and will be restored once account access is
+                            recovered.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Content and Features -->
+            <div class="faq-category">
+                <h2>✨ Premium Content and Features</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I transfer my purchases to another account?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>No</strong>, purchases cannot be transferred between accounts as stated in our Terms
+                            of Service. Each purchase is permanently tied to the purchasing account for security and
+                            licensing reasons.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens to my purchases if I reset my account?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>According to our Privacy Policy, <strong>purchases are preserved during account
+                                resets</strong>. Please log back in with your original email address, and your premium
+                            content should be automatically restored.</p>
+                        <p>If your purchases don't restore automatically, contact us with your transaction details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why did the price of an item change after I bought it?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Price changes don't affect previous purchases</strong> - you keep what you bought at
+                            the original price. New purchases may have different pricing as stated in our Terms of
+                            Service.</p>
+                        <p>Your existing premium content remains yours regardless of current pricing.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What happens to my purchases if Skrawl shuts down?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>According to our Terms of Service, if we discontinue the service, we'll provide
+                            <strong>reasonable advance notice</strong>. While we cannot guarantee refunds for
+                            discontinued services, we'll do our best to provide fair resolution options within legal and
+                            technical constraints.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General App Questions -->
+            <div class="faq-category">
+                <h2>🎮 General App Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I play Skrawl? What are the basic rules?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Skrawl is a drawing and guessing game for 2-8 players with 3 rounds. Each player takes one
+                            turn as the drawer per round.</p>
+                        <p><strong>How to play:</strong><br>
+                            • Join a multiplayer room or play solo<br>
+                            • When it's your turn, draw the given word<br>
+                            • When others draw, try to guess what they're drawing<br>
+                            • Earn points for good drawings and correct guesses</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I play without creating an account?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Yes!</strong> You can play as a guest user with full functionality. Guest users enjoy
+                            enhanced privacy:</p>
+                        <p>• No personal information required<br>
+                            • Local preferences stored only on your device<br>
+                            • Temporary session data automatically deleted<br>
+                            • Full game access without creating an account</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I report inappropriate content or behavior?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We take community safety seriously. To report inappropriate content or behavior:</p>
+                        <p>• Use the in-app reporting feature (if available)<br>
+                            • Contact us at <strong>skrawlapp@gmail.com</strong> with details<br>
+                            • Include screenshots or descriptions of the issue</p>
+                        <p>We'll investigate reports and take appropriate action according to our Terms of Service.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is Skrawl safe for children?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Skrawl is designed to be family-friendly, but users must be <strong>at least 13 years
+                                old</strong> to create an account. Users under 18 should have parental permission.</p>
+                        <p>We do not knowingly collect personal information from children under 13 without parental
+                            consent. Parents should review our Privacy Policy and enable appropriate device controls.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I contact support for other issues?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For any questions not covered in this FAQ, please contact us:</p>
+                        <div class="highlight">
+                            <p><strong>Email:</strong> skrawlapp@gmail.com<br>
+                                <strong>Response Time:</strong> We aim to respond within 24-48 hours
+                            </p>
+                        </div>
+                        <p>Please include relevant details like your device type, account email, and transaction IDs for
+                            purchase-related issues.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I stay updated with Skrawl news and connect with the community?</span>
+                        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Join our community and stay updated with the latest Skrawl news:</p>
+                        <div class="highlight">
+                            <p><strong>🐦 Twitter/X:</strong> <a href="https://x.com/skrawl_app" target="_blank"
+                                    rel="noopener noreferrer" style="color: var(--primary);">@skrawl_app</a><br>
+                                <strong>💬 Discord:</strong> <a href="https://discord.gg/XsS9XvTpUb" target="_blank"
+                                    rel="noopener noreferrer" style="color: var(--primary);">Join our Discord server</a>
+                            </p>
+                        </div>
+                        <p>Follow us for game updates, community events, tips and tricks, and to connect with other
+                            Skrawl players!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="./privacy.html">Privacy Policy</a>
+                <a href="./terms.html">Terms of Service</a>
+                <a href="./faq.html">FAQ</a>
+                <a href="mailto:skrawlapp@gmail.com">Contact</a>
+                <a href="https://x.com/skrawl_app" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://discord.gg/XsS9XvTpUb" target="_blank" rel="noopener noreferrer">Discord</a>
+            </div>
+            <p class="footer-text">© 2025 Season and More LTD. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for FAQ Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active', !isActive);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

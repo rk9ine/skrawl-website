@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skrawl - Creative Drawing & Multiplayer Game</title>
+    <meta name="description"
+        content="Skrawl is a fun drawing and guessing game where you draw pictures and friends try to guess! Play with up to 8 people, share artwork, and see who's the best artist."">
+
+    <!-- Open Graph / Facebook -->
+    <meta property=" og:type" content="website">
+    <meta property="og:url" content="https://skrawl.app/">
+    <meta property="og:title" content="Skrawl - Creative Drawing & Multiplayer Game">
+    <meta property="og:description"
+        content="Skrawl is a fun drawing and guessing game where you draw pictures and friends try to guess! Play with up to 8 people, share artwork, and see who's the best artist."">
+    <meta property=" og:image" content="./assets/images/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://skrawl.app/">
+    <meta property="twitter:title" content="Skrawl - Creative Drawing & Multiplayer Game">
+    <meta property="twitter:description"
+        content="Skrawl is a fun drawing and guessing game where you draw pictures and friends try to guess! Play with up to 8 people, share artwork, and see who's the best artist."">
+    <meta property=" twitter:image" content="./assets/images/og-image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <!-- Performance and Security -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#6D8196">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Fonts - Optimized Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400&family=Nunito:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Patrick+Hand:wght@400&family=Nunito:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-brand">
+                <img src="./assets/images/logo-transparent.png" alt="Skrawl Logo" class="logo">
+                <span class="brand-text">Skrawl</span>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#download" class="nav-link cta-link">Download</a>
+
+                <!-- Desktop Theme Toggle -->
+                <button id="theme-toggle-desktop" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Controls -->
+            <div class="mobile-nav-controls">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <!-- Mobile Download Button -->
+                <a href="#download" class="mobile-download-btn">Download</a>
+
+                <!-- Mobile Hamburger Menu -->
+                <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-dropdown" class="mobile-dropdown">
+            <a href="#features" class="mobile-dropdown-link">Features</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Draw, Play, <span class="gradient-text">Create</span>
+                    </h1>
+                    <p class="hero-description">
+                        Skrawl is a fun drawing and guessing game where you draw pictures and your friends
+                        try to guess what you're drawing! Play with up to 8 people, share your artwork,
+                        and see who's the best artist and guesser.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#download" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Now
+                        </a>
+                        <a href="#features" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="app-preview">
+                        <img src="./assets/images/app-screenshot.png" alt="Skrawl App Screenshot"
+                            class="app-screenshot">
+                        <div class="preview-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Combined Features & How to Play Section -->
+        <section class="features" id="features">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need to Know</h2>
+                <p class="section-description">
+                    Discover Skrawl's features and learn how to play in minutes
+                </p>
+            </div>
+
+            <div class="features-container">
+                <!-- Left Side: Creative Tools -->
+                <div class="creative-tools-group">
+                    <h3 class="group-title">Creative Tools</h3>
+
+                    <div class="features-grid">
+                        <!-- Card 1: Onboarding -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    <path d="M6 21v-2a4 4 0 0 1 1.5-3.1"></path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Onboarding</h3>
+                            <p class="feature-description">
+                                Start playing in seconds! Sign up with Google, use your email, or play as a guest.
+                                Create your profile, pick an avatar, and jump right into the fun.
+                            </p>
+                        </div>
+
+                        <!-- Card 2: Easy Drawing -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                                    <path d="M2 2l7.586 7.586"></path>
+                                    <circle cx="11" cy="11" r="2"></circle>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Easy Drawing</h3>
+                            <p class="feature-description">
+                                Simple drawing tools that anyone can use! Pick colors, change brush sizes,
+                                fill areas with paint, and undo mistakes. Perfect for drawing anything you can imagine.
+                            </p>
+                        </div>
+
+                        <!-- Card 3: Share Feed -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Share Feed</h3>
+                            <p class="feature-description">
+                                Show off your best drawings to the community! Share your artwork, discover amazing
+                                creations from other players, and give likes to your favorite drawings.
+                            </p>
+                        </div>
+
+                        <!-- Card 4: Multiplayer -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Multiplayer</h3>
+                            <p class="feature-description">
+                                Join games with 2-8 players and take turns drawing and guessing! Earn points
+                                for correct guesses and good drawings. Play 3 rounds to see who wins.
+                            </p>
+                        </div>
+
+                        <!-- Card 5: Custom Games -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3">
+                                    </path>
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Custom Games</h3>
+                            <p class="feature-description">
+                                Create your own private rooms with custom settings! Choose how many rounds to play,
+                                set drawing time limits, and invite your friends for personalized game sessions.
+                            </p>
+                        </div>
+
+                        <!-- Card 6: Leaderboard -->
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                    <path d="M4 22h16"></path>
+                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="feature-title">Leaderboard</h3>
+                            <p class="feature-description">
+                                Compete with players worldwide and climb the rankings! See who's the best artist
+                                and guesser, earn points for wins, and become the ultimate Skrawl champion.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: How to Play -->
+                <div class="how-to-play-group">
+                    <h3 class="group-title">How to Play</h3>
+
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3 class="step-title">Join or Create</h3>
+                            <p class="step-description">
+                                Join a multiplayer room or create your own drawing session.
+                                Rooms support 2-8 players for optimal gameplay.
+                            </p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3 class="step-title">Draw & Guess</h3>
+                            <p class="step-description">
+                                Take turns drawing assigned words while others guess.
+                                Use simple drawing tools to create your masterpiece.
+                            </p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3 class="step-title">Share & Compete</h3>
+                            <p class="step-description">
+                                Earn points for correct guesses and creative drawings.
+                                Share your best artwork with the community.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download" id="download">
+            <div class="download-container">
+                <!-- Left Card: Download -->
+                <div class="download-card">
+                    <h2 class="download-title">Ready to Start Creating?</h2>
+                    <p class="download-description">
+                        Join thousands of artists and gamers in the ultimate creative platform.
+                        Download Skrawl now and unleash your artistic potential.
+                    </p>
+                    <div class="app-logo-container">
+                        <img src="./assets/images/app-screenshot.png" alt="Skrawl App Screenshot" class="app-logo">
+                    </div>
+                    <div class="download-buttons">
+                        <a href="#" class="download-btn">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on App Store">
+                        </a>
+                        <a href="#" class="download-btn">
+                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                alt="Get it on Google Play">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Card: About the Creator -->
+                <div class="creator-card">
+                    <h2 class="creator-title">About the Creator</h2>
+                    <p class="creator-description">
+                        Skrawl was built entirely using AI-assisted coding, proving that anyone can create amazing apps
+                        today!
+                        Starting as a complete beginner, I used modern AI tools to learn React Native, Expo, Supabase,
+                        and countless other technologies.
+                    </p>
+                    <p class="creator-description">
+                        This journey from zero coding experience to a full-featured multiplayer game shows how AI has
+                        democratized app development. If you've ever dreamed of building your own app, there's never
+                        been a better time to start!
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">React Native</span>
+                        <span class="tech-badge">Expo</span>
+                        <span class="tech-badge">Supabase</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">AI-Assisted</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./assets/images/logo-transparent.png" alt="Skrawl Logo" class="footer-logo">
+                <span class="footer-brand-text">Skrawl</span>
+            </div>
+            <div class="footer-links">
+                <a href="./privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="./terms.html" class="footer-link">Terms of Service</a>
+                <a href="./faq.html" class="footer-link">FAQ</a>
+                <a href="mailto:skrawlapp@gmail.com" class="footer-link">Contact</a>
+                <a href="https://x.com/skrawl_app" target="_blank" rel="noopener noreferrer"
+                    class="footer-link">Twitter</a>
+                <a href="https://discord.gg/XsS9XvTpUb" target="_blank" rel="noopener noreferrer"
+                    class="footer-link">Discord</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Skrawl. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts - Loaded at end for performance -->
+    <script src="./assets/js/main.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "Skrawl - Free Drawing App & Multiplayer Game",
+  "short_name": "Skrawl",
+  "description": "The ultimate drawing and guessing game! Play with friends, share artwork, compete in multiplayer matches.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2D68C4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./assets/images/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

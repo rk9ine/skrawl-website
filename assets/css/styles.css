@@ -92,23 +92,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Skip Link for Accessibility */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--primary);
-  color: white;
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 4px;
-  z-index: 9999;
-  transition: top 0.3s ease;
-}
 
-.skip-link:focus {
-  top: 6px;
-}
 
 /* Mobile Navigation Controls - Hidden on Desktop */
 .mobile-nav-controls {
@@ -1003,8 +987,7 @@ body {
 .mobile-download-btn:focus,
 .mobile-menu-toggle:focus,
 .mobile-dropdown-link:focus,
-.download-btn:focus,
-.skip-link:focus {
+.download-btn:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
@@ -1016,8 +999,7 @@ body {
 .mobile-download-btn:focus-visible,
 .mobile-menu-toggle:focus-visible,
 .mobile-dropdown-link:focus-visible,
-.download-btn:focus-visible,
-.skip-link:focus-visible {
+.download-btn:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }

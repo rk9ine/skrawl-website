@@ -2,24 +2,24 @@
 :root {
   /* Light Theme Colors - Based on Skrawl App Design System */
   --bg-primary: #f5f5f5;
-  --bg-surface: #f7f8fc;
+  --bg-surface: #f8faff;
   --bg-elevated: #ffffff;
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
   --text-tertiary: #9ca3af;
-  --primary: #6D8196;
-  --primary-variant: #5a6c7d;
+  --primary: #2D68C4;
+  --primary-variant: #1d4ed8;
   --accent: #d2b48c;
   --border: #e5e7eb;
-  --border-focus: #6D8196;
-  
+  --border-focus: #2D68C4;
+
   /* Glassmorphism Effects */
-  --glass-bg: rgba(109, 129, 150, 0.15);
-  --glass-border: rgba(109, 129, 150, 0.35);
-  --glass-overlay: rgba(109, 129, 150, 0.08);
-  
+  --glass-bg: rgba(45, 104, 196, 0.15);
+  --glass-border: rgba(45, 104, 196, 0.35);
+  --glass-overlay: rgba(45, 104, 196, 0.08);
+
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #6D8196 0%, #8d9aab 100%);
+  --gradient-primary: linear-gradient(135deg, #2D68C4 0%, #3b82f6 100%);
   --gradient-accent: linear-gradient(135deg, #d2b48c 0%, #cd853f 100%);
   
   /* Spacing */
@@ -59,7 +59,7 @@
   --text-tertiary: #9ca3af;
   --primary: #d2b48c;
   --primary-variant: #eaddd7;
-  --accent: #6D8196;
+  --accent: #2D68C4;
   --border: #525252;
   --border-focus: #d2b48c;
   
@@ -70,7 +70,7 @@
   
   /* Dark Gradients */
   --gradient-primary: linear-gradient(135deg, #d2b48c 0%, #cd853f 100%);
-  --gradient-accent: linear-gradient(135deg, #6D8196 0%, #8d9aab 100%);
+  --gradient-accent: linear-gradient(135deg, #2D68C4 0%, #3b82f6 100%);
 }
 
 /* Reset and Base Styles */

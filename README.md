@@ -76,7 +76,7 @@ landing-page/
 
 ### Colors
 - Extracted exact color values from `src/design-system/theme.ts`
-- Light theme: Slate blue-gray primary (#6D8196)
+- Light theme: True blue primary (#2D68C4)
 - Dark theme: Warm terracotta primary (#d2b48c)
 - Glassmorphism effects with proper opacity values
 

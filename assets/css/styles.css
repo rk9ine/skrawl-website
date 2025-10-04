@@ -1,7 +1,7 @@
 /* CSS Custom Properties for Theme Colors */
 :root {
   /* Light Theme Colors - Based on Skrawl App Design System */
-  --bg-primary: #f5f5f5;
+  --bg-primary: #ffffff;
   --bg-surface: #f8faff;
   --bg-elevated: #ffffff;
   --text-primary: #1a1a1a;

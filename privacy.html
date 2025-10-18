@@ -174,7 +174,7 @@
 
             <div class="effective-date">
                 <p><strong>Effective Date:</strong> 06/09/2025</p>
-                <p><strong>Last Updated:</strong> 06/09/2025</p>
+                <p><strong>Last Updated:</strong> 17/10/2025</p>
             </div>
 
             <h2>1. Introduction</h2>
@@ -229,9 +229,12 @@
             <h3>2.6 Purchase and Payment Data</h3>
             <ul>
                 <li><strong>Purchase history</strong> (items bought, purchase dates, transaction IDs)</li>
+                <li><strong>Platform information</strong> (whether purchase was made on iOS or Android)</li>
                 <li><strong>Payment information</strong> (processed by Apple/Google - we don't store payment details)
                 </li>
-                <li><strong>Purchase entitlements</strong> (what premium content you have access to)</li>
+                <li><strong>Purchase entitlements</strong> (what premium content you have access to on each platform)
+                </li>
+                <li><strong>App store account linkage</strong> (Apple ID or Google account used for purchase)</li>
                 <li><strong>Refund requests</strong> (handled through app stores, not directly by us)</li>
             </ul>
 
@@ -262,11 +265,12 @@
 
             <h3>3.4 Purchase and Premium Content</h3>
             <ul>
-                <li>Process and validate in-app purchases</li>
-                <li>Deliver premium content (skins, themes, features)</li>
-                <li>Maintain purchase history and entitlements</li>
-                <li>Restore purchases across your devices</li>
-                <li>Prevent unauthorized access to premium content</li>
+                <li>Process and validate in-app purchases with Apple App Store and Google Play Store</li>
+                <li>Deliver premium content (skins, themes, features) based on platform-specific purchases</li>
+                <li>Maintain purchase history and entitlements for each platform (iOS and Android separately)</li>
+                <li>Restore purchases across your devices on the same platform</li>
+                <li>Prevent unauthorized access to premium content and cross-platform purchase exploitation</li>
+                <li>Validate that purchases are only accessible on the platform where they were made</li>
             </ul>
 
             <h2>4. Data Sharing and Third Parties</h2>
@@ -307,7 +311,8 @@
                     retained indefinitely</li>
                 <li><strong>Guest data:</strong> Session data cleaned up when session ends (no permanent storage)</li>
                 <li><strong>Purchase data:</strong> Purchase history retained indefinitely to maintain access to premium
-                    content; preserved during account resets</li>
+                    content; preserved during account resets; includes platform information (iOS/Android) to ensure
+                    purchases are only accessible on the correct platform</li>
                 <li><strong>Analytics data:</strong> Aggregated and anonymized data retained for up to 2 years for
                     service improvement</li>
             </ul>

@@ -1,0 +1,27 @@
+<svg width="300" height="650" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="650" fill="#f0f0f0"/>
+  
+  <!-- Phone Frame -->
+  <rect x="10" y="10" width="280" height="630" rx="30" fill="white" stroke="#ddd" stroke-width="2"/>
+  
+  <!-- Status Bar -->
+  <rect x="20" y="20" width="260" height="30" fill="#333"/>
+  <text x="150" y="40" font-family="Arial" font-size="12" fill="white" text-anchor="middle">9:41</text>
+  
+  <!-- Header -->
+  <rect x="20" y="60" width="260" height="50" fill="#2D68C4"/>
+  <text x="150" y="90" font-family="Arial" font-size="18" fill="white" text-anchor="middle" font-weight="bold">Skrawl</text>
+  
+  <!-- Content Area -->
+  <rect x="30" y="120" width="240" height="400" fill="#fafafa" stroke="#ddd" stroke-width="1"/>
+  <text x="150" y="320" font-family="Arial" font-size="16" fill="#999" text-anchor="middle">Screenshot Placeholder</text>
+  <text x="150" y="345" font-family="Arial" font-size="12" fill="#ccc" text-anchor="middle">Replace with actual screenshot</text>
+  
+  <!-- Bottom Navigation -->
+  <rect x="20" y="530" width="260" height="60" fill="#f5f5f5"/>
+  <circle cx="75" cy="560" r="15" fill="#ddd"/>
+  <circle cx="150" cy="560" r="15" fill="#2D68C4"/>
+  <circle cx="225" cy="560" r="15" fill="#ddd"/>
+</svg>
+

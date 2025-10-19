@@ -293,6 +293,183 @@ class FormValidator {
   }
 }
 
+// Screenshot Carousel with Swipe Support
+class ScreenshotCarousel {
+  constructor() {
+    this.currentIndex = 0;
+    this.cards = document.querySelectorAll('.screenshot-card');
+    this.dots = document.querySelectorAll('.carousel-dots .dot');
+    this.prevBtn = document.querySelector('.carousel-arrow.prev');
+    this.nextBtn = document.querySelector('.carousel-arrow.next');
+    this.stack = document.querySelector('.screenshot-stack');
+
+    // Touch/drag state
+    this.isDragging = false;
+    this.startX = 0;
+    this.currentX = 0;
+    this.dragThreshold = 50;
+
+    // Auto-play state
+    this.autoPlayInterval = null;
+    this.autoPlayDelay = 4000;
+
+    if (this.cards.length > 0) {
+      this.init();
+    }
+  }
+
+  init() {
+    this.setupEventListeners();
+    this.updateCarousel();
+    this.startAutoPlay();
+  }
+
+  setupEventListeners() {
+    // Arrow navigation
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', () => this.prev());
+    }
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', () => this.next());
+    }
+
+    // Dot navigation
+    this.dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        this.goToSlide(index);
+      });
+    });
+
+    // Touch events for mobile
+    if (this.stack) {
+      this.stack.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+      this.stack.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
+      this.stack.addEventListener('touchend', (e) => this.handleTouchEnd(e));
+
+      // Mouse events for desktop drag
+      this.stack.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+      this.stack.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+      this.stack.addEventListener('mouseup', (e) => this.handleMouseUp(e));
+      this.stack.addEventListener('mouseleave', (e) => this.handleMouseUp(e));
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.prev();
+      if (e.key === 'ArrowRight') this.next();
+    });
+
+    // Pause auto-play on hover
+    if (this.stack) {
+      this.stack.addEventListener('mouseenter', () => this.stopAutoPlay());
+      this.stack.addEventListener('mouseleave', () => this.startAutoPlay());
+    }
+  }
+
+  // Touch handlers
+  handleTouchStart(e) {
+    this.isDragging = true;
+    this.startX = e.touches[0].clientX;
+    this.stopAutoPlay();
+  }
+
+  handleTouchMove(e) {
+    if (!this.isDragging) return;
+    this.currentX = e.touches[0].clientX;
+  }
+
+  handleTouchEnd(e) {
+    if (!this.isDragging) return;
+
+    const diff = this.startX - this.currentX;
+
+    if (Math.abs(diff) > this.dragThreshold) {
+      if (diff > 0) {
+        this.next();
+      } else {
+        this.prev();
+      }
+    }
+
+    this.isDragging = false;
+    this.startAutoPlay();
+  }
+
+  // Mouse drag handlers
+  handleMouseDown(e) {
+    this.isDragging = true;
+    this.startX = e.clientX;
+    this.stopAutoPlay();
+    e.preventDefault();
+  }
+
+  handleMouseMove(e) {
+    if (!this.isDragging) return;
+    this.currentX = e.clientX;
+  }
+
+  handleMouseUp(e) {
+    if (!this.isDragging) return;
+
+    const diff = this.startX - this.currentX;
+
+    if (Math.abs(diff) > this.dragThreshold) {
+      if (diff > 0) {
+        this.next();
+      } else {
+        this.prev();
+      }
+    }
+
+    this.isDragging = false;
+    this.startAutoPlay();
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+    this.updateCarousel();
+  }
+
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.cards.length) % this.cards.length;
+    this.updateCarousel();
+  }
+
+  goToSlide(index) {
+    this.currentIndex = index;
+    this.updateCarousel();
+    this.stopAutoPlay();
+    this.startAutoPlay();
+  }
+
+  updateCarousel() {
+    // Update active card
+    this.cards.forEach((card, index) => {
+      card.classList.toggle('active', index === this.currentIndex);
+    });
+
+    // Update active dot
+    this.dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === this.currentIndex);
+    });
+  }
+
+  startAutoPlay() {
+    this.stopAutoPlay();
+    this.autoPlayInterval = setInterval(() => {
+      this.next();
+    }, this.autoPlayDelay);
+  }
+
+  stopAutoPlay() {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlayInterval = null;
+    }
+  }
+}
+
 // Analytics and Tracking (placeholder for future implementation)
 class Analytics {
   constructor() {
@@ -330,10 +507,10 @@ class Analytics {
   trackEvent(eventName, properties = {}) {
     // Placeholder for analytics implementation
     console.log('Analytics Event:', eventName, properties);
-    
+
     // Example: Google Analytics 4
     // gtag('event', eventName, properties);
-    
+
     // Example: Custom analytics
     // analytics.track(eventName, properties);
   }
@@ -354,12 +531,13 @@ document.addEventListener('DOMContentLoaded', () => {
   new AnimationObserver();
   new HeaderScrollEffect();
   new ScrollHandler();
-  
+
   // Additional features
   new MobileMenu();
   new FormValidator();
   new Analytics();
-  
+  new ScreenshotCarousel();
+
   // Add loading complete class for any CSS animations
   document.body.classList.add('loaded');
 });
@@ -409,6 +587,7 @@ if (typeof module !== 'undefined' && module.exports) {
     ScrollHandler,
     MobileMenu,
     FormValidator,
-    Analytics
+    Analytics,
+    ScreenshotCarousel
   };
 }

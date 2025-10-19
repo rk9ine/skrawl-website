@@ -180,10 +180,50 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <div class="app-preview">
-                        <img src="./assets/images/app-screenshot.png" alt="Skrawl App Screenshot"
-                            class="app-screenshot">
-                        <div class="preview-overlay"></div>
+                    <div class="screenshot-carousel">
+                        <div class="carousel-container">
+                            <!-- Screenshot Stack -->
+                            <div class="screenshot-stack">
+                                <div class="screenshot-card active" data-index="0">
+                                    <img src="./assets/images/screenshots/profile.jpg" alt="Skrawl App - Profile Screen"
+                                        class="screenshot-img">
+                                </div>
+                                <div class="screenshot-card" data-index="1">
+                                    <img src="./assets/images/screenshots/home feed.jpg" alt="Skrawl App - Home Feed"
+                                        class="screenshot-img">
+                                </div>
+                                <div class="screenshot-card" data-index="2">
+                                    <img src="./assets/images/screenshots/gameplay.jpg"
+                                        alt="Skrawl App - Gameplay Screen" class="screenshot-img">
+                                </div>
+                                <div class="screenshot-card" data-index="3">
+                                    <img src="./assets/images/screenshots/leaderboard.jpg"
+                                        alt="Skrawl App - Leaderboard Screen" class="screenshot-img">
+                                </div>
+                            </div>
+
+                            <!-- Navigation Dots -->
+                            <div class="carousel-dots">
+                                <button class="dot active" data-index="0" aria-label="View screenshot 1"></button>
+                                <button class="dot" data-index="1" aria-label="View screenshot 2"></button>
+                                <button class="dot" data-index="2" aria-label="View screenshot 3"></button>
+                                <button class="dot" data-index="3" aria-label="View screenshot 4"></button>
+                            </div>
+
+                            <!-- Navigation Arrows -->
+                            <button class="carousel-arrow prev" aria-label="Previous screenshot">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="carousel-arrow next" aria-label="Next screenshot">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -365,14 +405,20 @@
                         <img src="./assets/images/app-screenshot.png" alt="Skrawl App Screenshot" class="app-logo">
                     </div>
                     <div class="download-buttons">
-                        <a href="#" class="download-btn">
-                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                alt="Download on App Store">
-                        </a>
-                        <a href="#" class="download-btn">
-                            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                                alt="Get it on Google Play">
-                        </a>
+                        <div class="download-btn-wrapper">
+                            <span class="coming-soon-badge">Coming Soon</span>
+                            <a href="#" class="download-btn disabled" aria-disabled="true">
+                                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                    alt="Download on App Store - Coming Soon">
+                            </a>
+                        </div>
+                        <div class="download-btn-wrapper">
+                            <span class="coming-soon-badge">Coming Soon</span>
+                            <a href="#" class="download-btn disabled" aria-disabled="true">
+                                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                                    alt="Get it on Google Play - Coming Soon">
+                            </a>
+                        </div>
                     </div>
                 </div>
 

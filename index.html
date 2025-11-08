@@ -184,19 +184,34 @@
                         <div class="carousel-container">
                             <!-- Screenshot Stack -->
                             <div class="screenshot-stack">
-                                <div class="screenshot-card active" data-index="0">
+                                <div class="screenshot-card active" data-index="0" data-has-video="true">
+                                    <div class="video-wrapper">
+                                        <a href="https://youtube.com/shorts/92pLxAmFTl4" target="_blank"
+                                            rel="noopener noreferrer" class="video-thumbnail-link">
+                                            <img src="https://img.youtube.com/vi/92pLxAmFTl4/maxresdefault.jpg"
+                                                alt="Skrawl Gameplay Video" class="screenshot-video">
+                                            <div class="play-button-overlay">
+                                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                                    <circle cx="40" cy="40" r="40" fill="rgba(255, 0, 0, 0.9)" />
+                                                    <path d="M32 26L56 40L32 54V26Z" fill="white" />
+                                                </svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="screenshot-card" data-index="1">
                                     <img src="./assets/images/screenshots/profile.jpg" alt="Skrawl App - Profile Screen"
                                         class="screenshot-img">
                                 </div>
-                                <div class="screenshot-card" data-index="1">
+                                <div class="screenshot-card" data-index="2">
                                     <img src="./assets/images/screenshots/home feed.jpg" alt="Skrawl App - Home Feed"
                                         class="screenshot-img">
                                 </div>
-                                <div class="screenshot-card" data-index="2">
+                                <div class="screenshot-card" data-index="3">
                                     <img src="./assets/images/screenshots/gameplay.jpg"
                                         alt="Skrawl App - Gameplay Screen" class="screenshot-img">
                                 </div>
-                                <div class="screenshot-card" data-index="3">
+                                <div class="screenshot-card" data-index="4">
                                     <img src="./assets/images/screenshots/leaderboard.jpg"
                                         alt="Skrawl App - Leaderboard Screen" class="screenshot-img">
                                 </div>
@@ -204,10 +219,11 @@
 
                             <!-- Navigation Dots -->
                             <div class="carousel-dots">
-                                <button class="dot active" data-index="0" aria-label="View screenshot 1"></button>
-                                <button class="dot" data-index="1" aria-label="View screenshot 2"></button>
-                                <button class="dot" data-index="2" aria-label="View screenshot 3"></button>
-                                <button class="dot" data-index="3" aria-label="View screenshot 4"></button>
+                                <button class="dot active" data-index="0" aria-label="View video"></button>
+                                <button class="dot" data-index="1" aria-label="View screenshot 1"></button>
+                                <button class="dot" data-index="2" aria-label="View screenshot 2"></button>
+                                <button class="dot" data-index="3" aria-label="View screenshot 3"></button>
+                                <button class="dot" data-index="4" aria-label="View screenshot 4"></button>
                             </div>
 
                             <!-- Navigation Arrows -->
